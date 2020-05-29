@@ -1,0 +1,27 @@
+{
+  "name": "CMS-Pizza",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuchenau/CMS-Pizza.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuchenau/CMS-Pizza/issues"
+  },
+  "homepage": "https://github.com/yuchenau/CMS-Pizza#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.16"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
