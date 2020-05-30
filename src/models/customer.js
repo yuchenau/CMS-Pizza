@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const schema = new mongoose.Schema({
     // _id:{
     //     type:String,
@@ -21,12 +20,12 @@ const schema = new mongoose.Schema({
     },
     registerTime:{
         type:String,
-    }
+    },
 }, {
     toJSON: {
-        virtuals: true,
+        virtuals: true
     },
-    id: false,
+    id: false
 });
 
 schema.virtual('fullName').get(function() {
