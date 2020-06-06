@@ -1,14 +1,16 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema({
+    // 1 to 1: {}
+    // 1 to many: [{},{}]
     customer:{
-        type:String,
+        type:mongoose.Schema.Types.ObjectId,
         ref:'Customer',
     },
-    Quantity:{
-        type:Number,
+    quantity:{
+        type:String,
     },
     price:{
-        type:Number,
+        type:String,
     },
     note:{
         type:String,

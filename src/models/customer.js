@@ -9,7 +9,7 @@ const schema = new mongoose.Schema({
     lastName:{
         type:String,
     },
-    nickname:{
+    nickName:{
         type:String,
     },
     phone:{
@@ -21,6 +21,10 @@ const schema = new mongoose.Schema({
     registerTime:{
         type:String,
     },
+    // Relation with Collection Orders
+    orders:[
+        {type: mongoose.Schema.Types.ObjectId, ref: 'Order'},
+    ]
 }, {
     toJSON: {
         virtuals: true

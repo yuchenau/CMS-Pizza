@@ -13,6 +13,8 @@ const { connectToDB } = require('./utils/db');
 //   return res.send('Hello World');
 // });
 
+// express. json() is a method inbuilt in express to recognize the incoming Request Object as a JSON Object.
+app.use(express.json());
 app.use('/api/v1', routes);
 connectToDB().then(() => {
   app.listen(PORT, () => {
