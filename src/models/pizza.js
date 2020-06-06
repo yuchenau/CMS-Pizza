@@ -5,7 +5,6 @@ const schema = new mongoose.Schema({
     },
     description:{
         type:String,
-        default: "Lorem",
     },
     vegetarian:{
         type:Boolean,

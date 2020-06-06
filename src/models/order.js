@@ -1,11 +1,9 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema({
-    // 1 to 1: {}
-    // 1 to many: [{},{}]
-    customer:{
+    customer:[{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'Customer',
-    },
+        ref:'Order',
+    }],
     quantity:{
         type:String,
     },

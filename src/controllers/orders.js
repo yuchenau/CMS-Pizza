@@ -1,5 +1,6 @@
 // Import mongoose Order Model
 const orderModel = require('../models/order');
+const customerModel = require('../models/customer');
 
 async function addOrder(req, res) {
     const { 
@@ -14,7 +15,8 @@ async function addOrder(req, res) {
 
 async function getOrder(req, res) {
     const { id } = req.params;
-    const order = await orderModel.findById(id);
+    // when customer is deleted, populate('customer') will find there is no customer object 
+    const order = await orderModel.findById(id).populate('customer');
     if (!order) {
         return res.status(404).send('Order not found');
     }

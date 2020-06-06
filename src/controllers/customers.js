@@ -71,8 +71,10 @@ async function addOrder(req, res) {
         return res.status(404).send('Order not found');
     }
     // add order to customer
-    customer.orders.addToSet(orderId);
-    order.customer.addToSet(customerId);
+    console.log(customer, order);
+    console.log(customer.orders);
+    customer.orders.addToSet(order._id);
+    order.customer.addToSet(customer._id);
     // save customer
     Promise.all([await customer.save()], [await order.save()])
     // return order

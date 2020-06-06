@@ -22,9 +22,9 @@ const schema = new mongoose.Schema({
         type:String,
     },
     // Relation with Collection Orders
-    orders:[
-        {type: mongoose.Schema.Types.ObjectId, ref: 'Order'},
-    ]
+    orders:[{
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Order'}],
 }, {
     toJSON: {
         virtuals: true
