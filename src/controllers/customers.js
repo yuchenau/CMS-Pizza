@@ -71,10 +71,9 @@ async function addOrder(req, res) {
         return res.status(404).send('Order not found');
     }
     // add order to customer
-    console.log(customer, order);
-    console.log(customer.orders);
+    console.log(order.customer);
     customer.orders.addToSet(order._id);
-    order.customer.addToSet(customer._id);
+    order.customer = customerId;
     // save customer
     Promise.all([await customer.save()], [await order.save()])
     // return order
@@ -95,7 +94,7 @@ async function deleteOrder(req, res) {
     // delete order from customer's orders
     customer.orders.pull( order._id );
     // delete customer from order's customer
-    order.customer.pull( customer._id );
+    order.customer = null;
     Promise.all([await customer.save()], [await order.save()]);
     return res.send(customer);
 }

@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const schema = new mongoose.Schema({
-    // _id:{
-    //     type:String,
-    // },
+    _id:{
+        type:mongoose.Schema.Types.ObjectId,
+        default:null
+    },
     firstName:{
         type:String,
     },
