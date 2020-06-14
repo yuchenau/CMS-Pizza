@@ -10,7 +10,9 @@ async function loginUser(req, res) {
     if (!existingUser) {
         return res.status(400).send('Invalid username or password');
     }
-    if (existingUser.password !== password) {
+    const validPassword = await existingUser.validatePassword(password);
+    // if (existingUser.password !== password) 
+    if (!validPassword) {
         return res.status(400).send('Invalid username or password');
     }
     const token = generateToken(existingUser._id);
