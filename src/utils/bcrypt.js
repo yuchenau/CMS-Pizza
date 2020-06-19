@@ -1,5 +1,3 @@
-const bycrypt = require('bcrypt');
+const bycrypt = require("bcrypt");
 
-module.exports - {
-    
-}
+module.exports - {};

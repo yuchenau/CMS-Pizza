@@ -1,26 +1,34 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const schema = new mongoose.Schema({
-    name:{
-        type:String,
+  order: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Order",
+  },
+  name: {
+    type: String,
+  },
+  description: {
+    type: String,
+  },
+  vegetarian: {
+    type: Boolean,
+  },
+  calorie: {
+    type: Number,
+  },
+  ingredients: [
+    {
+      type: String,
+      ref: "Ingredient",
     },
-    description:{
-        type:String,
+  ],
+  extras: [
+    {
+      type: String,
+      ref: "Extra",
     },
-    vegetarian:{
-        type:Boolean,
-    },
-    calorie:{
-        type:Number,
-    },
-    ingredients:[{
-        type:String,
-        ref:'Ingredient',
-    }],
-    extras:[{
-        type:String,
-        ref:'Extra',
-    }],
-})
+  ],
+});
 
-const Model = mongoose.model('Pizza', schema);
+const Model = mongoose.model("Pizza", schema);
 module.exports = Model;
