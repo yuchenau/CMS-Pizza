@@ -1,13 +1,5 @@
 const mongoose = require("mongoose");
 const schema = mongoose.Schema({
-  customer: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Order",
-  },
-  pizza: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Pizza",
-  },
   quantity: {
     type: String,
   },
@@ -26,6 +18,14 @@ const schema = mongoose.Schema({
   orderStatus: {
     type: String,
   },
+  customer: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Order",
+  },
+  pizza: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Pizza",
+  }],
 });
 
 const Model = mongoose.model("Order", schema);

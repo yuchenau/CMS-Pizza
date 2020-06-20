@@ -1,6 +1,7 @@
-// Import mongoose Order Model
-const orderModel = require('../models/order');
+// Import mongoose Customer, Order, Pizza Model
 const customerModel = require('../models/customer');
+const orderModel = require('../models/order');
+const pizzaModel = require('../models/pizza');
 
 async function addOrder(req, res) {
     const {
@@ -16,10 +17,11 @@ async function addOrder(req, res) {
 async function getOrder(req, res) {
     const { id } = req.params;
     // when customer is deleted, populate('customer') will find there is no customer object 
-    const order = await orderModel.findById(id).populate('customer');
+    const order = await orderModel.findById(id).populate("pizza");
     if (!order) {
         return res.status(404).send('Order not found');
     }
+    console.log(order);
     return res.send(order);
 }
 
@@ -51,10 +53,29 @@ async function deleteOrder(req, res) {
     return res.sendStatus(200);
 }
 
+async function addPizza(req, res) {
+    const { orderId, pizzaId } = req.params;
+    const order = await orderModel.findById(orderId);
+    const pizza = await pizzaModel.findById(pizzaId);
+    if (!order || !pizza) {
+        return res.status(404).send('Order or Pizza not found');
+    }
+    order.pizza.addToSet(pizzaId);
+    pizza.orders.addToSet(orderId);
+    Promise.all([await order.save()], [await pizza.save()]);
+    return res.send(order);
+}
+
+function deletePizza(req, res) {
+    
+}
+
 module.exports= {
     addOrder,
     getOrder,
     getAllOrders,
     updateOrder,
-    deleteOrder
+    deleteOrder,
+    addPizza,
+    deletePizza
 }

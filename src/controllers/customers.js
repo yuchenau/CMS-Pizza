@@ -21,11 +21,12 @@ async function getCustomer(req, res) {
   // Rename id to code (Redundant)
   const { id: code } = req.params;
   // populate() functions
-  const customer = await customerModel.findById(code).populate("orders");
+  const customer = await customerModel.findById(code).populate("orders").populate("pizza");
   // If id not found
   if (!customer) {
     return res.status(404).send("Customer not found");
   }
+  console.log(customer);
   return res.send(customer);
 }
 
@@ -55,6 +56,10 @@ async function deleteCustomer(req, res) {
   if (!deletedCustomer) {
     return res.status(404).send("Customer not found");
   }
+  // await orderModel.updateMany(
+  //   { _id: {$in: deleteCustomer.orders}},
+  //   { $pull: {orders: order._id}},
+  // )
   return res.sendStatus(200);
 }
 
@@ -74,7 +79,7 @@ async function addOrder(req, res) {
     return res.status(404).send("Order not found");
   }
   // add order to customer
-  console.log(order.customer);
+  // console.log(order.customer);
   customer.orders.addToSet(order._id);
   order.customer = customerId;
   // save customer
