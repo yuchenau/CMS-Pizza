@@ -22,10 +22,12 @@ const schema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Order",
   },
-  pizza: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Pizza",
-  }],
+  pizza: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Pizza",
+    },
+  ],
 });
 
 const Model = mongoose.model("Order", schema);

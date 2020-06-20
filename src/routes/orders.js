@@ -6,7 +6,7 @@ const {
   updateOrder,
   deleteOrder,
   addPizza,
-  deletePizza
+  deletePizza,
 } = require("../controllers/orders");
 
 const router = express.Router();

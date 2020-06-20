@@ -21,7 +21,10 @@ async function getCustomer(req, res) {
   // Rename id to code (Redundant)
   const { id: code } = req.params;
   // populate() functions
-  const customer = await customerModel.findById(code).populate("orders").populate("pizza");
+  const customer = await customerModel
+    .findById(code)
+    .populate("orders")
+    .populate("pizza");
   // If id not found
   if (!customer) {
     return res.status(404).send("Customer not found");

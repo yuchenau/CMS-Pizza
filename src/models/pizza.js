@@ -12,22 +12,24 @@ const schema = new mongoose.Schema({
   calorie: {
     type: Number,
   },
-  orders: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Order",
-  }],
-//   ingredients: [
-//     {
-//       type: String,
-//       ref: "Ingredient",
-//     },
-//   ],
-//   extras: [
-//     {
-//       type: String,
-//       ref: "Extra",
-//     },
-//   ],
+  orders: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Order",
+    },
+  ],
+  //   ingredients: [
+  //     {
+  //       type: String,
+  //       ref: "Ingredient",
+  //     },
+  //   ],
+  //   extras: [
+  //     {
+  //       type: String,
+  //       ref: "Extra",
+  //     },
+  //   ],
 });
 
 const Model = mongoose.model("Pizza", schema);
