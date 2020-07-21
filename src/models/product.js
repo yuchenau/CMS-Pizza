@@ -18,7 +18,6 @@ const schema = new mongoose.Schema({
     avatar:{
         type: String
     },
-
 })
 
 const Model = mongoose.model('Product', schema)

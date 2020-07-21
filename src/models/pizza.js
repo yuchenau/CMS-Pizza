@@ -3,11 +3,11 @@ const schema = new mongoose.Schema({
   name: {
     type: String,
   },
-  ingredients: {
-    type: String,
-  },
   price: {
     type: Number,
+  },
+  ingredients: {
+    type: String,
   },
   description: {
     type: String,
