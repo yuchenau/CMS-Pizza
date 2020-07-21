@@ -8,7 +8,7 @@ exports.connectToDB = () => {
   db.on("connected", () => {
     console.log("Database connected");
   });
-  db.on("error", () => {
+  db.on("error", (error) => {
     console.log("Database connection failed");
     console.error(error.message);
     process.exit(1);

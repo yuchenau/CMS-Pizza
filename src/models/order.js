@@ -1,34 +1,17 @@
-const mongoose = require("mongoose");
-const schema = mongoose.Schema({
-  quantity: {
-    type: String,
-  },
-  price: {
-    type: String,
-  },
-  note: {
-    type: String,
-  },
-  paymentMethod: {
-    type: String,
-  },
-  orderTime: {
-    type: String,
-  },
-  orderStatus: {
-    type: String,
-  },
-  customer: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Order",
-  },
-  pizza: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Pizza",
-    },
-  ],
-});
+const mongoose = require('mongoose');
 
-const Model = mongoose.model("Order", schema);
-module.exports = Model;
+const schema = new mongoose.Schema({
+    quantity: {type: String, default: 1},
+    productId: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Product',
+        required: true
+    },
+    totalPrice: {type: Number, required: true},
+})
+
+const Model = mongoose.model('Order', schema)
+
+
+exports.orderSchema = schema
+exports.orderModel = Model
