@@ -3,14 +3,14 @@ const schema = new mongoose.Schema({
   name: {
     type: String,
   },
-  description: {
+  ingredients: {
     type: String,
   },
-  vegetarian: {
-    type: Boolean,
-  },
-  calorie: {
+  price: {
     type: Number,
+  },
+  description: {
+    type: String,
   },
   orders: [
     {
@@ -18,18 +18,6 @@ const schema = new mongoose.Schema({
       ref: "Order",
     },
   ],
-  //   ingredients: [
-  //     {
-  //       type: String,
-  //       ref: "Ingredient",
-  //     },
-  //   ],
-  //   extras: [
-  //     {
-  //       type: String,
-  //       ref: "Extra",
-  //     },
-  //   ],
 });
 
 const Model = mongoose.model("Pizza", schema);
