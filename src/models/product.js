@@ -11,12 +11,18 @@ const schema = new mongoose.Schema({
         type: String,
         required: true
     },
+    ingredient: {
+        type: String,
+    },
+    description: {
+        type: String,
+    },
     calorie: {
         type: String,
         required: true
     },
     avatar:{
-        type: String
+        type: String,
     },
 })
 
