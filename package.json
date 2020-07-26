@@ -29,7 +29,12 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.16",
     "morgan": "^1.10.0",
-    "pm2": "^4.4.0"
+    "pm2": "^4.4.0",
+    "react-uuid": "^1.0.2",
+    "stripe": "^8.77.0",
+    "uuid": "^8.2.0",
+    "winston": "^3.3.3",
+    "winston-mongodb": "^5.0.1"
   },
   "devDependencies": {
     "eslint": "^7.5.0",

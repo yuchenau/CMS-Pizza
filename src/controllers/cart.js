@@ -56,7 +56,7 @@ async function removeOrder(req, res) {
 
     //calculate total price of all orders 
     const cartTotalPrice = cart.totalPrice - Number(order.totalPrice)
-    cart.totalPrice =  Math.round(cartTotalPrice * 100) / 100
+    cart.totalPrice =  Number(cartTotalPrice ).toFixed(2)
 
     //empty price
     if (cart.totalPrice < 0 || cart.orders.length == 0) {
@@ -67,10 +67,20 @@ async function removeOrder(req, res) {
     return res.json(order)
 }
 
+async function emptyOrders(req, res) {
+    const cart = await cartModel.findById(req.params.id);
+    if(!cart) return res.status(404).json('User cart not found')
+    cart.orders = undefined;
+    cart.totalPrice = 0;
+    cart.save()
+    res.json(cart)
+}
+
 
 module.exports = {
     getCart,
     addCart,
     addOrder,
     removeOrder,
+    emptyOrders,
 }

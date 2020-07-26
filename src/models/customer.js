@@ -28,7 +28,8 @@ const schema = new mongoose.Schema({
         minlength: 5,
         maxlength: 1024,
     },
-    userCart: {type: mongoose.Schema.Types.ObjectId, ref: 'Cart'}
+    userCart: {type: mongoose.Schema.Types.ObjectId, ref: 'Cart'},
+    trackMyOrders:[{type: mongoose.Schema.Types.ObjectId, ref: 'PaidOrder'}]
 })
 
 schema.methods.hashPassword = async function () {

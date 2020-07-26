@@ -9,7 +9,7 @@ const {
 } = require('../controllers/customers');
 
 // router.get('/me', authGuard, getCurrentUser);
-router.get('/:id',authGuard, getCustomer);
+router.get('/me',authGuard, getCustomer);
 router.post('/', addCustomer);
 router.delete('/:id', deleteCustomer);
 
