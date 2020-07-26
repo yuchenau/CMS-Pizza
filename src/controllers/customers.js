@@ -4,12 +4,8 @@ const { generateToken } = require('../utils/jwt');
 
 
 
-// async function getCurrentUser (req, res) {
-//     const user = await customerModel.findById(req.user.id).select('-password')
-// }
-
 async function getCustomer (req, res) {
-    const customer = await customerModel.findById(req.params.id).select('-password').populate({
+    const customer = await customerModel.findById(req.user.id).select('-password').populate({
                                                                                         path: 'userCart',
                                                                                         populate: {
                                                                                             path: 'orders',
@@ -21,6 +17,7 @@ async function getCustomer (req, res) {
 
     res.send(customer)
 }
+
 
 async function addCustomer (req, res) {
     const { error } = validate(req.body);
@@ -66,7 +63,6 @@ async function deleteCustomer(req, res) {
 
 
 module.exports = {
-//    getCurrentUser,
    addCustomer,
    getCustomer,
    deleteCustomer

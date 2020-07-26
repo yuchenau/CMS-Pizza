@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const logger = require('./logging');
 exports.connectToDB = () => {
   // Environmental Variables
   const { DB_HOST, DB_PORT, DB_DATABASE } = process.env;
@@ -6,15 +7,15 @@ exports.connectToDB = () => {
 
   const db = mongoose.connection;
   db.on("connected", () => {
-    console.log("Database connected");
+    logger.logger.info("Database connected");
   });
   db.on("error", (error) => {
-    console.log("Database connection failed");
-    console.error(error.message);
+    logger.logger.info("Database connection failed");
+    logger.logger.info(error.message);
     process.exit(1);
   });
   db.on("disconnected", () => {
-    console.log("Database disconnected");
+    logger.logger.info("Database disconnected");
   });
 
   // Connect to MongoDB Database
