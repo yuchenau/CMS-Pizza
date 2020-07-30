@@ -5,7 +5,6 @@ const { productModel } = require('../models/product');
 async function getAllPizzaGenre(req,res) {
     const pizzaGenre = await pizzaGenreModel.find().populate('pizzas')
     res.json(pizzaGenre)
-
 }
 
 async function getPizzaGenre(req,res) {
