@@ -21,6 +21,10 @@ const schema = new mongoose.Schema({
         type: String,
         required: true
     },
+    description: {
+        type: String,
+        default: 'Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
+    },
     avatar:{
         type: String,
     },

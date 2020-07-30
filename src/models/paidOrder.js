@@ -7,7 +7,9 @@ const schema = new mongoose.Schema({
     shippingAddress: {
         type: String
     },
-    status: { type:String, default:'Confirmed' }
+    status: { type:String, default:'Confirmed' },
+    time : { type : Date, default: Date.now },
+    name: {type: String}
 })
 
 const Model = mongoose.model('PaidOrder', schema)

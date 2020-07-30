@@ -16,6 +16,28 @@ async function updateOrderStatus(req,res) {
     return res.json(order);
 }
 
+async function getOrder(req, res) {
+    const order = await paidOrderModel.findById(req.params.id)
+    if (!order) {
+        return res.status(404).send("The Order is not found, Please Check Your Order ID")
+    };
+
+    return res.json(order);
+}
+
+async function getAllOrders(req, res) {
+    const orders = await paidOrderModel.find()
+    res.json(orders)
+}
+
+async function deleteOrders(req, res) {
+    const order = await paidOrderModel.findByIdAndDelete(req.params.id)
+    return res.json(order)
+}
+
 module.exports = {
     updateOrderStatus,
+    getOrder,
+    getAllOrders,
+    deleteOrders
   }
