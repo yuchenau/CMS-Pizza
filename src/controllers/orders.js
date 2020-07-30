@@ -1,7 +1,6 @@
 // Import mongoose Customer, Order, Pizza Model
 const customerModel = require("../models/customer");
 const orderModel = require("../models/order");
-const pizzaModel = require("../models/pizza");
 
 async function addOrder(req, res) {
   const {
