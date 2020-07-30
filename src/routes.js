@@ -6,8 +6,8 @@ const orderRoutes = require("./routes/orders");
 const userRoutes = require("./routes/users");
 const pizzaRoutes = require("./routes/pizza");
 const productRoutes = require("./routes/products");
-const cartRoutes = require('./routes/cart');
-const paidOrderRoutes = require('./routes/paidOrder');
+const cartRoutes = require("./routes/cart");
+const paidOrderRoutes = require("./routes/paidOrder");
 
 const pizzaGenreRoutes = require("./routes/pizzaGenres");
 const sideGenreRoutes = require("./routes/sideGenres");
@@ -18,7 +18,7 @@ const authenticationRoutes = require("./routes/authentication");
 const customerAuthRoutes = require("./routes/customerAuth");
 const authenticationGuard = require("./middleware/authGuard");
 
-const stripCheckoutRoutes = require('./routes/stripe');
+const stripCheckoutRoutes = require("./routes/stripe");
 
 const router = express.Router();
 
@@ -39,6 +39,5 @@ router.use("/drinkGenres", drinkGenreRoutes);
 
 router.use("/authentication", authenticationRoutes);
 router.use("/customerAuth", customerAuthRoutes);
-
 
 module.exports = router;

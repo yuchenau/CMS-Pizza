@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const logger = require('./logging');
+const logger = require("./logging");
 exports.connectToDB = () => {
   // Environmental Variables
   const { DB_HOST, DB_PORT, DB_DATABASE } = process.env;
