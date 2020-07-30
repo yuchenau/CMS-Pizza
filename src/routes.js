@@ -25,7 +25,7 @@ const router = express.Router();
 router.use("/customers", customerRoutes);
 router.use("/orders", orderRoutes);
 router.use("/users", userRoutes);
-router.use("/pizza", pizzaRoutes);
+router.use("/pizzas", pizzaRoutes);
 router.use("/products", productRoutes);
 router.use("/carts", cartRoutes);
 router.use("/paidOrder", paidOrderRoutes);

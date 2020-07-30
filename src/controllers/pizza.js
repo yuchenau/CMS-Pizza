@@ -2,8 +2,8 @@ const OrderModel = require("../models/order");
 const PizzaModel = require("../models/pizza");
 
 async function addPizza(req, res) {
-  const { name, description, vegetarian, calorie } = req.body;
-  const pizza = new PizzaModel({ name, description, vegetarian, calorie });
+  const { name, price, ingredients, description } = req.body;
+  const pizza = new PizzaModel({ name, price, ingredients, description });
   await pizza.save();
   return res.status(201).send(pizza);
 }
@@ -24,10 +24,10 @@ async function getAllPizza(req, res) {
 
 async function updatePizza(req, res) {
   const { id } = req.params;
-  const { name, description, vegetarian, calorie } = req.body;
+  const { name, price, ingredients, description } = req.body;
   const newPizza = PizzaModel.findByIdAndUpdate(
     id,
-    { name, description, vegetarian, calorie },
+    { name, price, ingredients, description },
     { new: true }
   );
   if (!newPizza) {

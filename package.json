@@ -37,6 +37,7 @@
     "winston-mongodb": "^5.0.1"
   },
   "devDependencies": {
+    "eslint": "^7.5.0",
     "nodemon": "^2.0.4",
     "prettier": "2.0.5"
   }

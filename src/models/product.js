@@ -11,6 +11,12 @@ const schema = new mongoose.Schema({
         type: String,
         required: true
     },
+    ingredient: {
+        type: String,
+    },
+    description: {
+        type: String,
+    },
     calorie: {
         type: String,
         required: true
@@ -20,9 +26,8 @@ const schema = new mongoose.Schema({
         default: 'Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
     },
     avatar:{
-        type: String
+        type: String,
     },
-
 })
 
 const Model = mongoose.model('Product', schema)
