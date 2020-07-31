@@ -9,7 +9,6 @@ exports.connectToDB = () => {
   } else {
     connectionString = `mongodb://${DB_HOST}:${DB_PORT}/${DB_DATABASE}`;
   }
-
   const db = mongoose.connection;
   db.on("connected", () => {
     logger.logger.info("Database connected");
